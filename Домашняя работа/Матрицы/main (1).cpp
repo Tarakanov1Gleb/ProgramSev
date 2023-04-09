@@ -1,35 +1,36 @@
+//Вариант 20 задача 3 В квадратной матрице, найти сумму отрицательных элементов, лежащих на главной диагонали.
 /*
- j++;
- возвращение summ;
-int main()
- постоянная строка ввода = 10;
+#include<iostream>
+#include<array>
+#include<time.h>
+int func(std::array<std::array<int,10>,10> matrix)
 {
- столбец const int = 10;
- сранд (время (0));
- std::array<std::array<int, строка>, столбец> матрица;
- пока(мне<10){
- если(матрица[i][j]<0)
- сумма+= матрица[i][j];
- я++;
+ int summ = 0;
+ int i=0;
+ int j=0;
+ while(i<10){
+ if(matrix[i][j]<0)
+ summ+=matrix[i][j];
+ i++;
  j++;
     }
- возвращение summ;
+ return summ;
 }
 int main()
 {
- постоянная строка ввода = 10;
- столбец const int = 10;
- сранд (время (0));
- std::array<std::array<int, строка>, столбец> матрица;
- для(int i=0;я
- для(int j=0;j
- матрица [i][j] = rand()%20 - 10;
- std::cout<;
+ const int line = 10;
+ const int column = 10;
+ srand(time(0));
+ std::array<std::array<int,line>,column> matrix;
+    for(int i=0;i<column;i++){
+        for(int j=0;j<line;j++){
+            matrix[i][j] = rand()%20 - 10;
+            std::cout<<matrix[i][j]<<" ";
         }
- std::cout<;
+        std::cout<<std::endl;
     }
- std::cout<<"Summ = "<;
- возврат 0;
+    std::cout<<"Summ = "<<func(matrix)<<std::endl;
+    return 0;
 }
 */
 
@@ -37,59 +38,59 @@ int main()
 //переставить его с элементом, стоящим в этой строке на главной диагонали.
 
 /*
-#включить<iostream>
-#включить<массив>
-#включить<time.h>
-функция void(std::array<std::array<int, 4>, 4> матрица)
+#include<iostream>
+#include<array>
+#include<time.h>
+void func(std::array<std::array<int,4>,4> matrix)
 {
- значение int = 11;
- строка int = 4;
- столбец int = 4;
- int j = 0;
- int i = 0;
- int pos_i_min;
- пока (я
+    int value = 11;
+    int line = 4;
+    int column = 4;
+    int j = 0;
+    int i = 0;
+    int pos_i_min;
+    while(i<line)
     {
- для(j=0;j
+        for(j=0;j<column;j++)
         {
- если(матрица[i][j]
+            if(matrix[i][j]<value)
             {
- значение = матрица[i][j];
- pos_i_min = j;
+                value = matrix[i][j];
+                pos_i_min = j;
             }
         }
- матрица[i][pos_i_min] = матрица[i][i];
- матрица [i][i] = значение;
- я++;
- значение = 11;
+        matrix[i][pos_i_min] = matrix[i][i];
+        matrix[i][i] = value;
+     i++;
+     value = 11;
     }
- для(int b =0;b
+    for(int b =0;b<line;b++)
     {
- для(int a=0;a
+        for(int a=0;a<column;a++)
         {
- std::cout<;
+            std::cout<<matrix[b][a]<<" ";
         }
- std::cout<;
+        std::cout<<std::endl;
     }
 }
 int main()
 {
- постоянная строка ввода = 4;
- столбец const int = 4;
- сранд (время (0));
- std::array<std::array<int, строка>, столбец> матрица;
- для(int i=0;я
- для(int j=0;j
- матрица [i][j] = rand()%20 - 10;
- std::cout<;
+    const int line = 4;
+    const int column = 4;
+    srand(time(0));
+    std::array<std::array<int,line>,column> matrix;
+    for(int i=0;i<line;i++){
+        for(int j=0;j<column;j++){
+            matrix[i][j] = rand()%20 - 10;
+            std::cout<<matrix[i][j]<<" ";
         }
- std::cout<;
+        std::cout<<std::endl;
     }
- std::cout<
- <
- <;
- функция (матрица);
- возврат 0;
+    std::cout<<std::endl
+             <<std::endl
+             <<std::endl;
+    func(matrix);
+    return 0;
 }
 */
 
@@ -97,173 +98,173 @@ int main()
 //Задача 8 Дана матрица. Элементы первой строки — мощность электромотора, второй строки
 //— категория мотора (число от 1 до 3). Найти самый мощный мотор категории 3.
 /*
-#включить<iostream>
-#включить<массив>
-#включить<time.h>
-функция int(std::array<std::array<int, 7>, 2> матрица){
- int max_moshnost = -1;
- для(int i=0;i<7;i++)
+#include<iostream>
+#include<array>
+#include<time.h>
+int func(std::array<std::array<int,7>,2> matrix){
+    int max_moshnost = -1;
+    for(int i=0;i<7;i++)
     {
- если(матрица[1][i] == 3)
+        if(matrix[1][i] == 3)
         {
- если(матрица[0][i]>max_moshnost)
+            if(matrix[0][i]>max_moshnost)
             {
- max_moshnost = матрица[0][i];
+                max_moshnost = matrix[0][i];
             }
         }
     }
- вернуть max_moshnost;
+    return max_moshnost;
 }
 int main()
 {
- const int linn = 2;
- столбец const int = 7;
- сранд (время (0));
- std::array<std::array<int,column>,linn> матрица;
- для(int i=0;я
- матрица[0][i] = rand()%10;
- std::cout<;
+    const int linn = 2;
+    const int column = 7;
+    srand(time(0));
+    std::array<std::array<int,column>,linn> matrix;
+        for(int i=0;i<column;i++){
+            matrix[0][i] = rand()%10;
+            std::cout<<matrix[0][i]<<" ";
         }
- std::cout<;
- для(int j=0;j
- матрица[1][j] = rand()%3 + 1;
- std::cout<;
+        std::cout<<std::endl;
+        for(int j=0;j<column;j++){
+            matrix[1][j] = rand()%3 + 1;
+            std::cout<<matrix[1][j]<<" ";
         }
- std::cout<
- <
- <;
- std::cout<;
- возврат 0;
+    std::cout<<std::endl
+             <<std::endl
+             <<std::endl;
+    std::cout<<func(matrix)<<std::endl;
+    return 0;
 }
 */
 //Задача 9b: Объявить, реализовать заполнение данными с клавиатуры ИЛИ из файла и вывести
 //на экран матрицу, описывающую следующие сущности. Предложите свой вариант.
 //Состояние робота на шахматной доске. Робот характеризуется уровнем заряда, скоростью движения.
 /*
-#включить<iostream>
-#включить<массив>
-#включить<time.h>
-структурированный робот
+#include<iostream>
+#include<array>
+#include<time.h>
+struct Robot
 {
- внутренняя сила;
- скорость ввода;
+    int power;
+    int speed;
 };
-константные строки = 3;
-const int columms = 3;
-функция void(std::array<std::array<Робот, столбцы>, строки> dask)
+const int lines = 3;
+const int colums = 3;
+void func(std::array<std::array<Robot,colums>,lines> dask)
 {
- для(int i=0;я
+    for(int i=0;i<lines;i++)
     {
- для(int j=0;j
+        for(int j=0;j<colums;j++)
         {
- std::cout<;
+            std::cout<<dask[j][i].power<<";"<<dask[j][i].speed<<" ";
         }
- std::cout<;
+        std::cout<<std::endl;
     }
 }
 int main()
 {
- std::array<std::array<Робот, столбцы>, строки> dask;
- для(int i=0;я
+    std::array<std::array<Robot,colums>,lines> dask;
+ for(int i=0;i<lines;i++)
     {
- для(int j=0;j
+ for(int j=0;j<colums;j++)
         {
- std::cout<<"Сила: ";
- std::cin>>dask[j][i].мощность;
- std::cout<<"Скорость: ";
- std::cin>>dask[j][i].скорость;
+ std::cout<<"Power: ";
+ std::cin>>dask[j][i].power;
+ std::cout<<"Speed: ";
+ std::cin>>dask[j][i].speed;
         }
     }
- std::cout<;
- функция (dask);
- возврат 0;
+ std::cout<<std::endl;
+ func(dask);
+ return 0;
 }
 */
 
 //Задача 10(6)Реализовать вычисление матричных норм из списка выше (только для квадратных матриц).
 
 
-#включить<iostream>
-#включить<массив>
-#включить<time.h>
-#включить<cmath>
+#include<iostream>
+#include<array>
+#include<time.h>
+#include<cmath>
 
-int const столбцы = 3;
-int const строк = 3;
+const int columns = 3;
+const int lines = 3;
 
-функция void(std::array<std::array<int,столбцы>, строки> матрица)
+void func(std::array<std::array<int,columns>,lines> matrix)
 {
     int num_max;
  std::array<int,3> arr;
 
-    для(int i=0; я
+    for(int i=0;i<lines;i++)
     {
  num_max = 0;
 
-        для(int j=0;j
+        for(int j=0;j<columns;j++)
         {
-            если(матрица[i][j]>num_max)
+            if(matrix[i][j]>num_max)
             {
- num_max = матрица[i][j];
+ num_max = matrix[i][j];
             }
         }
  arr[i] = num_max;
     }
 
-    для(int a=0;a<3;a++)
+    for(int a=0;a<3;a++)
     {
- std::cout<<arr[a]<<" ";
+        std::cout<<arr[a]<<" ";
     }
 
- std::cout<;
+    std::cout<<std::endl;
 }
 
-обычный int(std::array<std::array<int, столбцы>, строки> матрица)
+int normal(std::array<std::array<int,columns>,lines> matrix)
 {
- std::array<int,3> summ;
+    std::array<int,3> summ;
     int num_summ;
     int num_max = -1;
-    для(int i=0; я
+    for(int i=0;i<lines;i++)
     {
- num_summ = 0;
-        для(int j=0;j
+        num_summ = 0;
+        for(int j=0;j<columns;j++)
         {
- num_summ += abs(матрица [j][i]);
+            num_summ += abs(matrix[j][i]);
         }
- сумма[i] = num_summ;
+ summ[i] = num_summ;
     }
 
-    для(int a=0;a<3;a++)
+    for(int a=0;a<3;a++)
     {
-        если(summ[a]>num_max)
+        if(summ[a]>num_max)
         {
- num_max = сумма[a];
+ num_max = summ[a];
         }
     }
 
-    вернуть num_max;
+    return num_max;
 }
 
-основной int()
+int main()
 {
-    старший(время(0));
+    srand(time(0));
 
-Встроенная панель инструментов действий с файлами
+ std::array<std::array<int,columns>,lines> matrix;
 
-    Копировать строки
-          Копировать строки  
+    for(int i=0;i<lines;i++){
+        for(int j=0;j<columns;j++)
         {
- матрица [i][j] = rand()%5;
-  Скопировать постоянную ссылку   
+ matrix[i][j] = rand()%5;
+ std::cout<<matrix[i][j]<<" ";
         }
-Посмотреть git blame
+ std::cout<<std::endl;
     }
-Ссылка в новом выпуске
+    std::cout<<std::endl;
 
-    функция(матрица);
-Перейти к строке
+    func(matrix);
+    std::cout<<std::endl;
 
-Перейти к строке…
+ std::cout<<"Normal: "<<normal(matrix)<<std::endl;
 
-    0 возврата;
+    0 0;
 }
